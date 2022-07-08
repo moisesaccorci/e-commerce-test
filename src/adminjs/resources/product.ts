@@ -14,13 +14,13 @@ export const productResourceFeatures: FeatureType[] = [
   uploadFileFeature({
     provider: {
       local: {
-        bucket: path.join(__dirname, '..', '..', '..', 'uploads')
+        bucket: path.join(__dirname, '..', '..', '..', 'public', 'uploads')
       }
     },
     properties: {
       key: 'thumbnailUrl',
       file: 'uploadThumbnail'
     },
-    uploadPath: (record, filename) => `images/product-${record.get('categoryId')}/${filename}`
+    uploadPath: (record, filename) => `images/${filename}`
   })
 ]

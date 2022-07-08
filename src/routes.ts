@@ -9,8 +9,8 @@ router.post('/auth/register', authController.register)
 router.post('/auth/login', authController.login)
 
 
-router.get('/categories', ensureAuth, categoriesController.index)
-router.get('/categories/:id', ensureAuth, categoriesController.show)
+router.get('/categories', categoriesController.index)
+router.get('/categories/:id', categoriesController.show)
 
 
 router.get('/products', productsController.index)

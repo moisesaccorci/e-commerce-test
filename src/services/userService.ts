@@ -8,7 +8,6 @@ export const userService = {
         'id',
         ['first_name', 'firstName'],
         ['last_name', 'lastName'],
-        'phone',
         'birth',
         'email',
         'password'

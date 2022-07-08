@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { Product } from "../models"
+import { ProductCreationAttributes } from "../models/Product"
 import { productService } from '../services/productService'
 
 export const productsController = {
@@ -18,7 +19,7 @@ export const productsController = {
 
         try {
             const { count, rows } = await Product.findAndCountAll({
-                attributes: ['id', 'name', 'description', 'price'],
+                attributes: ['id', 'name', 'description', 'price', 'thumbnailUrl'],
                 order: [['name', 'ASC']],
                 limit: perPageNumber,
                 offset
