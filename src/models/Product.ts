@@ -5,16 +5,17 @@ export interface Product {
   id: number
   name: string
   description: string
+  price: number
   thumbnailUrl: string
   featured: boolean
   categoryId: number
 }
 
 export interface ProductCreationAttributes
-  extends Optional<Product, 'id' | 'thumbnailUrl' | 'featured' > {}
+  extends Optional<Product, 'id' | 'thumbnailUrl' | 'featured' > { }
 
 export interface ProductInstance
-  extends Model<Product, ProductCreationAttributes>, Product {}
+  extends Model<Product, ProductCreationAttributes>, Product { }
 
 export const Product = sequelize.define<ProductInstance, Product>('Products', {
   id: {
@@ -30,6 +31,10 @@ export const Product = sequelize.define<ProductInstance, Product>('Products', {
   description: {
     allowNull: false,
     type: DataTypes.TEXT
+  },
+  price: {
+    allowNull: false,
+    type: DataTypes.FLOAT
   },
   thumbnailUrl: {
     type: DataTypes.STRING

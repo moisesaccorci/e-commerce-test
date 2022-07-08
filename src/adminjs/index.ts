@@ -3,7 +3,7 @@ import AdminJSExpress from '@adminjs/express'
 import AdminJSSequelize from '@adminjs/sequelize'
 import { sequelize } from "../database";
 import { adminJsResources } from "./resources";
-import { User } from "../models";
+import { Category, Product, User } from "../models";
 import bcrypt from "bcrypt"
 
 
@@ -14,6 +14,20 @@ export const adminJs = new AdminJS({
     databases: [sequelize],
     rootPath: '/admin',
     resources: adminJsResources,
+    dashboard: {
+        component: AdminJS.bundle('../adminjs/components/Dashboard'),
+        handler: async (req, res, context) => {
+            const category = await Category.count()
+            const product = await Product.count()
+            const standardUsers = await User.count({ where: { role: 'user' } })
+      
+            res.json({
+              'Categories': category,
+              'Products': product,
+              'Users': standardUsers
+            })
+          },
+    },
     branding: {
         companyName: 'TS-Prototype',
         logo: '/lmwflix.png',

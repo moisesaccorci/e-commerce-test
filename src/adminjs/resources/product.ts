@@ -4,10 +4,10 @@ import path from "path";
 
 export const productResourceOptions: ResourceOptions = {
   navigation: 'Store',
-  editProperties: ['name', 'description', 'uploadThumbnail', 'featured', 'categoryId'],
-  filterProperties: ['name', 'description', 'featured', 'categoryId', 'createdAt', 'updatedAt'],
+  editProperties: ['name', 'description', 'uploadThumbnail', 'featured', 'categoryId', 'price'],
+  filterProperties: ['name', 'description', 'featured', 'categoryId', 'createdAt', 'updatedAt', 'price'],
   listProperties: ['id', 'name', 'featured', 'categoryId'],
-  showProperties: ['id', 'name', 'description', 'featured', 'thumbnailUrl', 'categoryId', 'createdAt', 'updatedAt']
+  showProperties: ['id', 'name', 'description', 'featured', 'thumbnailUrl', 'categoryId', 'createdAt', 'updatedAt', 'price']
 }
 
 export const productResourceFeatures: FeatureType[] = [

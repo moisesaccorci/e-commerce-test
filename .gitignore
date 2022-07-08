@@ -1,1 +1,4 @@
 node_modules/
+/migrations
+src/database/migrations
+src/database/seeders
