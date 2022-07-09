@@ -1,10 +1,10 @@
 module.exports = {
     development: {
         dialect:'postgres',
-        host: 'localhost',
+        host: process.env.HOST,
         port: '5432',
-        database: 'ts_prototype_dev',
-        username: 'ts_prototype',
-        password: 'ts_prototype'
+        database: process.env.DATABASE,
+        username: process.env.USERNAME,
+        password: process.env.PASS
     }
 }
