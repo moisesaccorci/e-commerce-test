@@ -19,6 +19,5 @@ exports.sequelize = new sequelize_1.Sequelize({
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at',
-        userId: 'user_id'
     },
 });
