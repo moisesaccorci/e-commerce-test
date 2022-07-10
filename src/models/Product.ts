@@ -9,11 +9,12 @@ export interface Product {
   thumbnail_url: string
   featured: boolean,
   user_id: number,
-  updated_at: number
+  updated_at: number,
+  created_at: number
 }
 
 export interface ProductCreationAttributes
-  extends Optional<Product, 'id' | 'thumbnail_url' | 'featured' | 'user_id' | 'updated_at'> { }
+  extends Optional<Product, 'id' | 'thumbnail_url' | 'featured' | 'user_id' | 'updated_at' | 'created_at'> { }
 
 export interface ProductInstance
   extends Model<ProductAttributes, ProductCreationAttributes>, ProductAttributes { }

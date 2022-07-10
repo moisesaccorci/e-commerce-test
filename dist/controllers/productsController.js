@@ -14,31 +14,12 @@ const models_1 = require("../models");
 const productService_1 = require("../services/productService");
 exports.productsController = {
     index: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { page, perPage, id, name, description, price, thumbnail_url } = req.query;
-        const perPageNumber = typeof perPage === 'string' && parseInt(perPage, 10) > 0
-            ? parseInt(perPage, 10)
-            : 10;
-        const pageNumber = typeof page === 'string' && parseInt(page, 10) > 0
-            ? parseInt(page, 10)
-            : 1;
-        const offset = (pageNumber - 1) * perPageNumber;
         try {
-            const { count, rows } = yield models_1.Product.findAndCountAll({
-                attributes: ['id', 'name', 'description', 'price', 'thumbnail_url'],
-                order: [['name', 'ASC']],
-                limit: perPageNumber,
-                offset
+            const products = yield models_1.Product.findAll({
+                attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at'],
+                order: [['id', 'ASC']]
             });
-            return res.json({
-                id,
-                name,
-                description,
-                price,
-                thumbnail_url,
-                page: pageNumber,
-                perPage: perPageNumber,
-                total: count
-            });
+            return res.json(products);
         }
         catch (err) {
             if (err instanceof Error) {
@@ -59,13 +40,14 @@ exports.productsController = {
         }
     }),
     create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { name, description, price, user_id, updated_at } = req.body;
+        const { name, description, price, user_id, created_at, updated_at } = req.body;
         try {
             const product = yield productService_1.productService.create({
                 name,
                 description,
                 price,
                 user_id,
+                created_at,
                 updated_at
             });
             return res.status(201).json(product);
