@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DataTypes.STRING
       },
+      price: {
+        allowNull: false,
+        type: Sequelize.DataTypes.FLOAT
+      },
       description: {
         allowNull: false,
         type: Sequelize.DataTypes.TEXT
