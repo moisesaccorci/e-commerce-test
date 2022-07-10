@@ -24,9 +24,6 @@ app.use(adminJs.options.rootPath, adminJsRouter)
 app.use(express.static('public'))
 app.use(adminJs.options.rootPath, adminJsRouter)
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
 
 const PORT = process.env.PORT || 4000
 

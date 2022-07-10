@@ -26,7 +26,7 @@ exports.authController = {
                 birth,
                 email,
                 password,
-                role: 'user'
+                role,
             });
             return res.status(201).json(user);
         }
