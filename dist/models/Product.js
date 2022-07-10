@@ -35,6 +35,14 @@ exports.Product = database_1.sequelize.define('products', {
         references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
+    },
+    created_at: {
+        allowNull: false,
+        type: sequelize_1.DataTypes.DATE
+    },
+    updated_at: {
+        allowNull: false,
+        type: sequelize_1.DataTypes.DATE
     }
 }, {
     freezeTableName: true,

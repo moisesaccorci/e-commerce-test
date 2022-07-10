@@ -49,6 +49,14 @@ export const Product = sequelize.define<ProductInstance, ProductAttributes>('pro
     references: { model: 'users', key: 'id' },
     onUpdate: 'CASCADE',
     onDelete: 'RESTRICT'
+  },
+  created_at: {
+    allowNull: false,
+    type: DataTypes.DATE
+  },
+  updated_at: {
+    allowNull: false,
+    type: DataTypes.DATE
   }
 },
 {
