@@ -16,6 +16,7 @@ module.exports = {
             createdAt: 'created_at',
             updatedAt: 'updated_at',
             deletedAt: 'deleted_at',
+            userId: 'user_id'
           },
     }
 }
