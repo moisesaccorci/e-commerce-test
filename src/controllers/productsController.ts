@@ -59,8 +59,8 @@ export const productsController = {
                 name,
                 description,
                 price,
-                updated_at: Date.now(),
                 user_id,
+                updated_at
             })
 
             return res.status(201).json(product)
