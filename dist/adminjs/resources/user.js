@@ -26,8 +26,8 @@ const userResourceOptions = {
         'surname',
         'email',
         'role',
-        'createdAt',
-        'updatedAt'
+        'created_at',
+        'updated_at'
     ],
     listProperties: [
         'id',
@@ -41,8 +41,8 @@ const userResourceOptions = {
         'surname',
         'email',
         'role',
-        'createdAt',
-        'updatedAt'
+        'created_at',
+        'updated_at'
     ],
 };
 exports.userResourceOptions = userResourceOptions;

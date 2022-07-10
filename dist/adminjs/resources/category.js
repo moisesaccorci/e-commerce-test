@@ -4,7 +4,7 @@ exports.categoryResourceOptions = void 0;
 exports.categoryResourceOptions = {
     navigation: 'Store',
     editProperties: ['name', 'position'],
-    filterProperties: ['name', 'position', 'createdAt', 'updatedAt'],
+    filterProperties: ['name', 'position', 'created_at', 'updated_at'],
     listProperties: ['id', 'name', 'position'],
-    showProperties: ['id', 'name', 'position', 'createdAt', 'updatedAt']
+    showProperties: ['id', 'name', 'position', 'created_at', 'updated_at']
 };
