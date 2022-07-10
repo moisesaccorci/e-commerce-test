@@ -59,7 +59,4 @@ export const Product = sequelize.define<ProductInstance, ProductAttributes>('pro
     allowNull: false,
     type: DataTypes.DATE
   }
-},
-{
-  freezeTableName: true,
-})
+},)

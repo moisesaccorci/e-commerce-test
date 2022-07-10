@@ -44,6 +44,4 @@ exports.Product = database_1.sequelize.define('products', {
         allowNull: false,
         type: sequelize_1.DataTypes.DATE
     }
-}, {
-    freezeTableName: true,
 });
