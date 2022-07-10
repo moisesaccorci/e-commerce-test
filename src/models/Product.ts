@@ -16,7 +16,7 @@ export interface ProductCreationAttributes
 export interface ProductInstance
   extends Model<ProductAttributes, ProductCreationAttributes>, ProductAttributes { }
 
-export const Product = sequelize.define<ProductInstance, ProductAttributes>('Products', {
+export const Product = sequelize.define<ProductInstance, ProductAttributes>('products', {
   id: {
     allowNull: false,
     autoIncrement: true,
