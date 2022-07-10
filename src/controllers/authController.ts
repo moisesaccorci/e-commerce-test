@@ -20,7 +20,7 @@ export const authController = {
                 birth,
                 email,
                 password,
-                role,
+                role: 'user',
             })
 
             return res.status(201).json(user)

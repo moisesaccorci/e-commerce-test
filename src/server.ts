@@ -22,10 +22,10 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(router)
 
-app.use(adminJs.options.rootPath, adminJsRouter)
+// app.use(adminJs.options.rootPath, adminJsRouter)
 
-app.use(express.static('public'))
-app.use(adminJs.options.rootPath, adminJsRouter)
+// app.use(express.static('public'))
+// app.use(adminJs.options.rootPath, adminJsRouter)
 
 
 
