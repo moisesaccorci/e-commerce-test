@@ -25,8 +25,8 @@ const userResourceOptions: ResourceOptions = {
     'surname',
     'email',
     'role',
-    'createdAt',
-    'updatedAt'
+    'created_at',
+    'updated_at'
   ],
   listProperties: [
     'id',
@@ -40,8 +40,8 @@ const userResourceOptions: ResourceOptions = {
     'surname',
     'email',
     'role',
-    'createdAt',
-    'updatedAt'
+    'created_at',
+    'updated_at'
   ],
 }
 
