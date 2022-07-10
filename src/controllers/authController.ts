@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { userService } from '../services/userService'
 import { jwtService } from '../services/jwtService'
+import bcrypt from 'bcrypt'
 
 export const authController = {
 
@@ -38,6 +39,8 @@ export const authController = {
             if (!user) {
                 return res.status(401).json({ message: 'This e-mail is not registered' })
             }
+
+            const hashedPass = bcrypt.hash(password.toString(), 10)
 
             user.checkPassword(password, (err, isSame) => {
                 if (err) {
