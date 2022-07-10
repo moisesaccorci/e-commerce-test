@@ -15,10 +15,4 @@ exports.sequelize = new sequelize_1.Sequelize({
     database: process.env.DATABASE,
     username: process.env.USERNAME,
     password: process.env.PASS,
-    // dialect:'postgres',
-    // host: 'localhost',
-    // port: '5432',
-    // database: 'ts-prototype-dev',
-    // username: 'ts-prototype',
-    // password: 'ts-prototype'
 });

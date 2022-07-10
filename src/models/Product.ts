@@ -44,7 +44,7 @@ export const Product = sequelize.define<ProductInstance, Product>('Products', {
   },
   user_id: {
     allowNull: false,
-    type: sequelize.DataTypes.INTEGER,
+    type: DataTypes.INTEGER,
     references: { model: 'users', key: 'id' },
     onUpdate: 'CASCADE',
     onDelete: 'RESTRICT'

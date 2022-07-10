@@ -31,7 +31,7 @@ exports.Product = database_1.sequelize.define('Products', {
     },
     user_id: {
         allowNull: false,
-        type: database_1.sequelize.DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.INTEGER,
         references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
