@@ -54,12 +54,13 @@ exports.productsController = {
         }
     }),
     create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { name, description, price, user_id } = req.body;
+        const { name, description, price, user_id, updated_at } = req.body;
         try {
             const product = yield productService_1.productService.create({
                 name,
                 description,
                 price,
+                updated_at: Date.now(),
                 user_id,
             });
             return res.status(201).json(product);

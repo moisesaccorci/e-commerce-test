@@ -51,7 +51,7 @@ export const productsController = {
         }
     },
     create: async (req: Request, res: Response) => {
-        const { name, description, price, user_id } = req.body
+        const { name, description, price, user_id,  updated_at } = req.body
 
         try {
                                
@@ -59,6 +59,7 @@ export const productsController = {
                 name,
                 description,
                 price,
+                updated_at: Date.now(),
                 user_id,
             })
 

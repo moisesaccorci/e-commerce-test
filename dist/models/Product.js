@@ -37,7 +37,7 @@ exports.Product = database_1.sequelize.define('products', {
         onDelete: 'RESTRICT'
     },
     created_at: {
-        allowNull: false,
+        allowNull: true,
         type: sequelize_1.DataTypes.DATE
     },
     updated_at: {

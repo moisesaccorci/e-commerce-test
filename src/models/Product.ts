@@ -8,11 +8,12 @@ export interface Product {
   price: number
   thumbnail_url: string
   featured: boolean,
-  user_id: number
+  user_id: number,
+  updated_at: number
 }
 
 export interface ProductCreationAttributes
-  extends Optional<Product, 'id' | 'thumbnail_url' | 'featured' | 'user_id'> { }
+  extends Optional<Product, 'id' | 'thumbnail_url' | 'featured' | 'user_id' | 'updated_at'> { }
 
 export interface ProductInstance
   extends Model<ProductAttributes, ProductCreationAttributes>, ProductAttributes { }
@@ -51,7 +52,7 @@ export const Product = sequelize.define<ProductInstance, ProductAttributes>('pro
     onDelete: 'RESTRICT'
   },
   created_at: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.DATE
   },
   updated_at: {

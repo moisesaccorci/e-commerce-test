@@ -36,7 +36,7 @@ module.exports = {
         onDelete: 'RESTRICT'
       },
       created_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DataTypes.DATE
       },
       updated_at: {
