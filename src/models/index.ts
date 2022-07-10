@@ -3,7 +3,7 @@ import { User } from './User'
 User.hasMany(Product, { 
     as: 'products',
     foreignKey: {
-        name: 'user_id',
+        name: 'userId',
         field: 'user_id'
     }
 })

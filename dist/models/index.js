@@ -8,7 +8,7 @@ Object.defineProperty(exports, "User", { enumerable: true, get: function () { re
 User_1.User.hasMany(Product_1.Product, {
     as: 'products',
     foreignKey: {
-        name: 'user_id',
+        name: 'userId',
         field: 'user_id'
     }
 });
