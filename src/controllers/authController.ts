@@ -13,14 +13,14 @@ export const authController = {
             if (userAlreadyExists) {
                 throw new Error('This e-mail already exists on our database')
             }
-
+                               
             const user = await userService.create({
                 firstName,
                 lastName,
                 birth,
                 email,
                 password,
-                role: 'user'
+                role,
             })
 
             return res.status(201).json(user)
