@@ -49,4 +49,7 @@ export const Product = sequelize.define<ProductInstance, Product>('Products', {
     onUpdate: 'CASCADE',
     onDelete: 'RESTRICT'
   }
+},
+{
+  freezeTableName: true,
 })

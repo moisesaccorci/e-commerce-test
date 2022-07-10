@@ -57,7 +57,8 @@ exports.User = database_1.sequelize.define('users', {
                 user.password = yield bcrypt_1.default.hash(user.password.toString(), 10);
             }
         })
-    }
+    },
+    freezeTableName: true,
 });
 exports.User.prototype.checkPassword = function (password, callbackfn) {
     bcrypt_1.default.compare(password, this.password, (err, isSame) => {

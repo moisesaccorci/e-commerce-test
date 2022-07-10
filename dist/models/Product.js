@@ -36,4 +36,6 @@ exports.Product = database_1.sequelize.define('Products', {
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
     }
+}, {
+    freezeTableName: true,
 });

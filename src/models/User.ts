@@ -57,14 +57,16 @@ export const User = sequelize.define<UserInstance, UserAttributes>('users', {
             isIn: [['admin', 'user']]
         }
     }
-}, {
+},
+ {
     hooks: {
         beforeSave: async (user) => {
             if (user.isNewRecord || user.changed('password')) {
                 user.password = await bcrypt.hash(user.password.toString(), 10)
             }
         }
-    }
+    },
+    freezeTableName: true,
 })
 User.prototype.checkPassword = function (password: string, callbackfn: (err: Error | undefined, isSame: boolean) => void) {
     bcrypt.compare(password, this.password, (err, isSame) => {
