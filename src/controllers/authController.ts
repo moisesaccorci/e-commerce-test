@@ -40,9 +40,8 @@ export const authController = {
                 return res.status(401).json({ message: 'This e-mail is not registered' })
             }
 
-            const hashedPass = bcrypt.hash(password.toString(), 10)
 
-            user.checkPassword((await hashedPass).toString(), (err, isSame) => {
+            user.checkPassword(await bcrypt.hash(password.toString(),10), (err, isSame) => {
                 if (err) {
                     return res.status(400).json({ message: err.message })
                 }
