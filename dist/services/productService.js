@@ -14,7 +14,7 @@ const models_1 = require("../models");
 exports.productService = {
     findByIdWithDetails: (id) => __awaiter(void 0, void 0, void 0, function* () {
         const productWithDetails = yield models_1.Product.findByPk(id, {
-            attributes: ['id', 'name', 'description', ['thumbnail_url', 'thumbnailUrl']],
+            attributes: ['id', 'name', 'description', ['thumbnail_url', 'thumbnail_url']],
         });
         return productWithDetails;
     }),

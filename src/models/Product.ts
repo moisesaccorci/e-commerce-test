@@ -6,13 +6,13 @@ export interface Product {
   name: string
   description: string
   price: number
-  thumbnailUrl: string
+  thumbnail_url: string
   featured: boolean,
   user_id: number
 }
 
 export interface ProductCreationAttributes
-  extends Optional<Product, 'id' | 'thumbnailUrl' | 'featured' | 'user_id'> { }
+  extends Optional<Product, 'id' | 'thumbnail_url' | 'featured' | 'user_id'> { }
 
 export interface ProductInstance
   extends Model<ProductAttributes, ProductCreationAttributes>, ProductAttributes { }

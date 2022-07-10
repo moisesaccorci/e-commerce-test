@@ -19,7 +19,7 @@ export const productsController = {
 
         try {
             const { count, rows } = await Product.findAndCountAll({
-                attributes: ['id', 'name', 'description', 'price', 'thumbnailUrl'],
+                attributes: ['id', 'name', 'description', 'price', 'thumbnail_url'],
                 order: [['name', 'ASC']],
                 limit: perPageNumber,
                 offset
