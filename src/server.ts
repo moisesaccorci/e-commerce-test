@@ -1,5 +1,4 @@
 import express from "express"
-import { adminJs, adminJsRouter } from "./adminjs"
 import { router } from './routes'
 import { sequelize } from "./database"
 import cors from 'cors'
@@ -21,14 +20,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use(router)
-
-// app.use(adminJs.options.rootPath, adminJsRouter)
-
-// app.use(express.static('public'))
-// app.use(adminJs.options.rootPath, adminJsRouter)
-
-
-
 
 const PORT = process.env.PORT || 4000
 

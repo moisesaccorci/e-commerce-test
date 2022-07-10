@@ -26,7 +26,6 @@ export const productsController = {
             })
 
             return res.json({
-                categories: rows,
                 page: pageNumber,
                 perPage: perPageNumber,
                 total: count

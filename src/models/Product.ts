@@ -14,9 +14,9 @@ export interface ProductCreationAttributes
   extends Optional<Product, 'id' | 'thumbnailUrl' | 'featured' > { }
 
 export interface ProductInstance
-  extends Model<Product, ProductCreationAttributes>, Product { }
+  extends Model<ProductAttributes, ProductCreationAttributes>, ProductAttributes { }
 
-export const Product = sequelize.define<ProductInstance, Product>('Products', {
+export const Product = sequelize.define<ProductInstance, ProductAttributes>('Products', {
   id: {
     allowNull: false,
     autoIncrement: true,

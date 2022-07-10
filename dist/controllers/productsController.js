@@ -30,7 +30,6 @@ exports.productsController = {
                 offset
             });
             return res.json({
-                categories: rows,
                 page: pageNumber,
                 perPage: perPageNumber,
                 total: count

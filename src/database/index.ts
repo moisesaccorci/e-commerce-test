@@ -1,5 +1,4 @@
 import { Sequelize } from "sequelize";
-import { development } from '../../config/configTest.js'
 export const sequelize = new Sequelize({
     dialect:'postgres',
     "dialectOptions": {

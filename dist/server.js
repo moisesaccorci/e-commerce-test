@@ -18,9 +18,6 @@ app.use(express_1.default.static('public'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(routes_1.router);
-// app.use(adminJs.options.rootPath, adminJsRouter)
-// app.use(express.static('public'))
-// app.use(adminJs.options.rootPath, adminJsRouter)
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     database_1.sequelize.authenticate().then(() => {
