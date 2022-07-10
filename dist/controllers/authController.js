@@ -14,15 +14,15 @@ const userService_1 = require("../services/userService");
 const jwtService_1 = require("../services/jwtService");
 exports.authController = {
     register: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { firstName, lastName, email, password } = req.body;
+        const { name, surname, email, password } = req.body;
         try {
             const userAlreadyExists = yield userService_1.userService.findByEmail(email);
             if (userAlreadyExists) {
                 throw new Error('This e-mail already exists on our database');
             }
             const user = yield userService_1.userService.create({
-                firstName,
-                lastName,
+                name,
+                surname,
                 email,
                 password,
                 role: 'user',
@@ -51,7 +51,7 @@ exports.authController = {
                 }
                 const payload = {
                     id: user.id,
-                    firstName: user.firstName,
+                    name: user.name,
                     email: user.email
                 };
                 const token = jwtService_1.jwtService.getToken(payload, '7d');

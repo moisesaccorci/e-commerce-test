@@ -14,15 +14,15 @@ const userResourceOptions: ResourceOptions = {
     }
   },
   editProperties: [
-    'firstName',
-    'lastName',
+    'name',
+    'surname',
     'email',
     'password',
     'role'
   ],
   filterProperties: [
-    'firstName',
-    'lastName',
+    'name',
+    'surname',
     'email',
     'role',
     'createdAt',
@@ -30,14 +30,14 @@ const userResourceOptions: ResourceOptions = {
   ],
   listProperties: [
     'id',
-    'firstName',
+    'name',
     'email',
     'role'
   ],
   showProperties: [
     'id',
-    'firstName',
-    'lastName',
+    'name',
+    'surname',
     'email',
     'role',
     'createdAt',

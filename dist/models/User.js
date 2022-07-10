@@ -23,11 +23,11 @@ exports.User = database_1.sequelize.define('users', {
         primaryKey: true,
         type: sequelize_1.DataTypes.INTEGER
     },
-    firstName: {
+    name: {
         allowNull: false,
         type: sequelize_1.DataTypes.STRING
     },
-    lastName: {
+    surname: {
         allowNull: false,
         type: sequelize_1.DataTypes.STRING
     },

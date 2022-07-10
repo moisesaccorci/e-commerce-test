@@ -16,8 +16,8 @@ exports.userService = {
         const user = yield models_1.User.findOne({
             attributes: [
                 'id',
-                ['first_name', 'firstName'],
-                ['last_name', 'lastName'],
+                'name',
+                'surname',
                 'email',
                 'password'
             ],

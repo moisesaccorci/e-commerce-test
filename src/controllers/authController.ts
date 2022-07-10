@@ -5,7 +5,7 @@ import { jwtService } from '../services/jwtService'
 export const authController = {
 
     register: async (req: Request, res: Response) => {
-        const { firstName, lastName, email, password } = req.body
+        const { name, surname, email, password } = req.body
 
         try {
             const userAlreadyExists = await userService.findByEmail(email)
@@ -15,8 +15,8 @@ export const authController = {
             }
                                
             const user = await userService.create({
-                firstName,
-                lastName,
+                name,
+                surname,
                 email,
                 password,
                 role: 'user',
@@ -50,7 +50,7 @@ export const authController = {
 
                 const payload = {
                     id: user.id,
-                    firstName: user.firstName,
+                    name: user.name,
                     email: user.email
                 }
 

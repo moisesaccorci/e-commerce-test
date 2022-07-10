@@ -6,8 +6,8 @@ type CheckPasswordCallback = (err: Error | undefined, isSame: boolean) => void
 
 export interface UserAttributes {
     id: number
-    firstName: string
-    lastName: string
+    name: string
+    surname: string
     email: string
     password: string
     role: 'admin' | 'user'
@@ -30,11 +30,11 @@ export const User = sequelize.define<UserInstance, UserAttributes>('users', {
         primaryKey: true,
         type: DataTypes.INTEGER
     },
-    firstName: {
+    name: {
         allowNull: false,
         type: DataTypes.STRING
     },
-    lastName: {
+    surname: {
         allowNull: false,
         type: DataTypes.STRING
     },
