@@ -8,10 +8,10 @@ const upload_1 = __importDefault(require("@adminjs/upload"));
 const path_1 = __importDefault(require("path"));
 exports.productResourceOptions = {
     navigation: 'Store',
-    editProperties: ['name', 'description', 'uploadThumbnail', 'featured', 'categoryId', 'price'],
-    filterProperties: ['name', 'description', 'featured', 'categoryId', 'createdAt', 'updatedAt', 'price'],
-    listProperties: ['id', 'name', 'featured', 'categoryId'],
-    showProperties: ['id', 'name', 'description', 'featured', 'thumbnailUrl', 'categoryId', 'createdAt', 'updatedAt', 'price']
+    editProperties: ['name', 'description', 'uploadThumbnail', 'featured', 'userId', 'price'],
+    filterProperties: ['name', 'description', 'featured', 'userId', 'createdAt', 'updatedAt', 'price'],
+    listProperties: ['id', 'name', 'featured', 'userId'],
+    showProperties: ['id', 'name', 'description', 'featured', 'thumbnailUrl', 'userId', 'createdAt', 'updatedAt', 'price']
 };
 exports.productResourceFeatures = [
     (0, upload_1.default)({

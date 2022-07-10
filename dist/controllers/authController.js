@@ -14,7 +14,7 @@ const userService_1 = require("../services/userService");
 const jwtService_1 = require("../services/jwtService");
 exports.authController = {
     register: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { firstName, lastName, birth, email, password } = req.body;
+        const { firstName, lastName, email, password } = req.body;
         try {
             const userAlreadyExists = yield userService_1.userService.findByEmail(email);
             if (userAlreadyExists) {
@@ -23,7 +23,6 @@ exports.authController = {
             const user = yield userService_1.userService.create({
                 firstName,
                 lastName,
-                birth,
                 email,
                 password,
                 role: 'user',

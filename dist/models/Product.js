@@ -29,10 +29,10 @@ exports.Product = database_1.sequelize.define('Products', {
         defaultValue: false,
         type: sequelize_1.DataTypes.BOOLEAN
     },
-    categoryId: {
+    user_id: {
         allowNull: false,
-        type: sequelize_1.DataTypes.INTEGER,
-        references: { model: 'categories', key: 'id' },
+        type: database_1.sequelize.DataTypes.INTEGER,
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
     }

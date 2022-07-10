@@ -8,7 +8,6 @@ export interface Product {
   price: number
   thumbnailUrl: string
   featured: boolean
-  categoryId: number
 }
 
 export interface ProductCreationAttributes
@@ -43,10 +42,10 @@ export const Product = sequelize.define<ProductInstance, Product>('Products', {
     defaultValue: false,
     type: DataTypes.BOOLEAN
   },
-  categoryId: {
+  user_id: {
     allowNull: false,
-    type: DataTypes.INTEGER,
-    references: { model: 'categories', key: 'id' },
+    type: sequelize.DataTypes.INTEGER,
+    references: { model: 'users', key: 'id' },
     onUpdate: 'CASCADE',
     onDelete: 'RESTRICT'
   }

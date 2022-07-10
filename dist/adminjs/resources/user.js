@@ -4,9 +4,6 @@ exports.userResourceOptions = void 0;
 const userResourceOptions = {
     navigation: 'User Management',
     properties: {
-        birth: {
-            type: 'date'
-        },
         password: {
             type: 'password'
         },
@@ -20,7 +17,6 @@ const userResourceOptions = {
     editProperties: [
         'firstName',
         'lastName',
-        'birth',
         'email',
         'password',
         'role'
@@ -28,7 +24,6 @@ const userResourceOptions = {
     filterProperties: [
         'firstName',
         'lastName',
-        'birth',
         'email',
         'role',
         'createdAt',
@@ -44,7 +39,6 @@ const userResourceOptions = {
         'id',
         'firstName',
         'lastName',
-        'birth',
         'email',
         'role',
         'createdAt',

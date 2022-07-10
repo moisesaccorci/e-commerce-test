@@ -3,9 +3,6 @@ import { ResourceOptions } from "adminjs";
 const userResourceOptions: ResourceOptions = {
   navigation: 'User Management',
   properties: {
-    birth: {
-      type: 'date'
-    },
     password: {
       type: 'password'
     },
@@ -19,7 +16,6 @@ const userResourceOptions: ResourceOptions = {
   editProperties: [
     'firstName',
     'lastName',
-    'birth',
     'email',
     'password',
     'role'
@@ -27,7 +23,6 @@ const userResourceOptions: ResourceOptions = {
   filterProperties: [
     'firstName',
     'lastName',
-    'birth',
     'email',
     'role',
     'createdAt',
@@ -43,7 +38,6 @@ const userResourceOptions: ResourceOptions = {
     'id',
     'firstName',
     'lastName',
-    'birth',
     'email',
     'role',
     'createdAt',

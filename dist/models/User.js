@@ -31,10 +31,6 @@ exports.User = database_1.sequelize.define('users', {
         allowNull: false,
         type: sequelize_1.DataTypes.STRING
     },
-    birth: {
-        allowNull: false,
-        type: sequelize_1.DataTypes.DATE
-    },
     email: {
         allowNull: false,
         unique: true,

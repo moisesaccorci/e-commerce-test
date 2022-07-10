@@ -18,7 +18,6 @@ exports.userService = {
                 'id',
                 ['first_name', 'firstName'],
                 ['last_name', 'lastName'],
-                'birth',
                 'email',
                 'password'
             ],
