@@ -36,7 +36,7 @@ export const Product = sequelize.define<ProductInstance, ProductAttributes>('pro
     allowNull: false,
     type: DataTypes.FLOAT
   },
-  thumbnailUrl: {
+  thumbnail_url: {
     type: DataTypes.STRING
   },
   featured: {

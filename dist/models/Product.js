@@ -22,7 +22,7 @@ exports.Product = database_1.sequelize.define('products', {
         allowNull: false,
         type: sequelize_1.DataTypes.FLOAT
     },
-    thumbnailUrl: {
+    thumbnail_url: {
         type: sequelize_1.DataTypes.STRING
     },
     featured: {
