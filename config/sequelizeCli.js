@@ -1,5 +1,5 @@
 module.exports = {
-    prod: {
+    development: {
         dialect:'postgres',
         host: process.env.HOST,
         "dialectOptions": {
@@ -12,13 +12,5 @@ module.exports = {
         database: process.env.DATABASE,
         username: process.env.USERNAME,
         password: process.env.PASS,
-    },
-    development: {
-        dialect:'postgres',
-        host: 'localhost',
-        port: '5432',
-        database: 'ts-prototype-dev',
-        username: 'ts-prototype',
-        password: 'ts-prototype'
     }
 }
