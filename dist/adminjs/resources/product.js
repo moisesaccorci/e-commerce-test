@@ -11,7 +11,7 @@ exports.productResourceOptions = {
     editProperties: ['name', 'description', 'uploadThumbnail', 'featured', 'userId', 'price'],
     filterProperties: ['name', 'description', 'featured', 'userId', 'created_at', 'updated_at', 'price'],
     listProperties: ['id', 'name', 'featured', 'userId'],
-    showProperties: ['id', 'name', 'description', 'featured', 'thumbnailUrl', 'userId', 'created_at', 'updated_at', 'price']
+    showProperties: ['id', 'name', 'description', 'featured', 'thumbnail_url', 'userId', 'created_at', 'updated_at', 'price']
 };
 exports.productResourceFeatures = [
     (0, upload_1.default)({
@@ -21,7 +21,7 @@ exports.productResourceFeatures = [
             }
         },
         properties: {
-            key: 'thumbnailUrl',
+            key: 'thumbnail_url',
             file: 'uploadThumbnail'
         },
         uploadPath: (record, filename) => `images/${filename}`
