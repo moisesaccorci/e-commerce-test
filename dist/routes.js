@@ -13,3 +13,4 @@ router.post('/auth/register', authController_1.authController.register);
 router.post('/auth/login', authController_1.authController.login);
 router.get('/products', productsController_1.productsController.index);
 router.get('/products/:id', productsController_1.productsController.show);
+router.post('/products', productsController_1.productsController.create);
