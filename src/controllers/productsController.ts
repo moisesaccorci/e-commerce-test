@@ -49,5 +49,24 @@ export const productsController = {
                 return res.status(400).json({ message: err.message })
             }
         }
-    }
+    },
+    create: async (req: Request, res: Response) => {
+        const { name, description, price, user_id } = req.body
+
+        try {
+                               
+            const product = await productService.create({
+                name,
+                description,
+                price,
+                user_id,
+            })
+
+            return res.status(201).json(product)
+        } catch (err) {
+            if (err instanceof Error) {
+                return res.status(400).json({ message: err.message })
+            }
+        }
+    },
 }   

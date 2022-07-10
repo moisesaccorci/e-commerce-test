@@ -52,5 +52,22 @@ exports.productsController = {
                 return res.status(400).json({ message: err.message });
             }
         }
-    })
+    }),
+    create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { name, description, price, user_id } = req.body;
+        try {
+            const product = yield productService_1.productService.create({
+                name,
+                description,
+                price,
+                user_id,
+            });
+            return res.status(201).json(product);
+        }
+        catch (err) {
+            if (err instanceof Error) {
+                return res.status(400).json({ message: err.message });
+            }
+        }
+    }),
 };

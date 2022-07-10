@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 const database_1 = require("../database");
 const sequelize_1 = require("sequelize");
-exports.Product = database_1.sequelize.define('Products', {
+exports.Product = database_1.sequelize.define('products', {
     id: {
         allowNull: false,
         autoIncrement: true,
