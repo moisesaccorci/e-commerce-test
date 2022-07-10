@@ -27,5 +27,5 @@ app.listen(PORT, () => {
     database_1.sequelize.authenticate().then(() => {
         console.log('Connected to database!');
     });
-    console.log(`Server running on http://localhost:${PORT}/admin`);
+    console.log(`Server running on http://localhost:${PORT}/`);
 });
