@@ -13,11 +13,9 @@ module.exports = {
         username: process.env.USERNAME,
         password: process.env.PASS,
         define: {
-            timestamps: true,
-            underscored: true,
-            underscoredAll: true,
             createdAt: 'created_at',
-            updatedAt: 'updated_at'
-        }
+            updatedAt: 'updated_at',
+            deletedAt: 'deleted_at',
+          },
     }
 }
