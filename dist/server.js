@@ -16,6 +16,8 @@ app.use((req, res, next) => {
     next();
 });
 app.use(express_1.default.static('public'));
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(routes_1.router);
 app.use(adminjs_1.adminJs.options.rootPath, adminjs_1.adminJsRouter);
 app.use(express_1.default.static('public'));
@@ -25,5 +27,5 @@ app.listen(PORT, () => {
     database_1.sequelize.authenticate().then(() => {
         console.log('Connected to database!');
     });
-    console.log(`Server running on http://localhost:${PORT}/`);
+    console.log(`Server running on http://localhost:${PORT}/admin`);
 });

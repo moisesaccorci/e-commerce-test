@@ -17,6 +17,9 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'))
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.use(router)
 
 app.use(adminJs.options.rootPath, adminJsRouter)
@@ -25,11 +28,13 @@ app.use(express.static('public'))
 app.use(adminJs.options.rootPath, adminJsRouter)
 
 
+
+
 const PORT = process.env.PORT || 4000
 
 app.listen(PORT, () => {
      sequelize.authenticate().then(() => {
         console.log('Connected to database!')
     })
-    console.log(`Server running on http://localhost:${PORT}/`)
+    console.log(`Server running on http://localhost:${PORT}/admin`)
 })
