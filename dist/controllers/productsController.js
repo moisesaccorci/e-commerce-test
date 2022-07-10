@@ -14,7 +14,7 @@ const models_1 = require("../models");
 const productService_1 = require("../services/productService");
 exports.productsController = {
     index: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { page, perPage } = req.query;
+        const { page, perPage, id, name, description, price, thumbnail_url } = req.query;
         const perPageNumber = typeof perPage === 'string' && parseInt(perPage, 10) > 0
             ? parseInt(perPage, 10)
             : 10;
@@ -30,6 +30,11 @@ exports.productsController = {
                 offset
             });
             return res.json({
+                id,
+                name,
+                description,
+                price,
+                thumbnail_url,
                 page: pageNumber,
                 perPage: perPageNumber,
                 total: count

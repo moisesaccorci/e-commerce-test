@@ -5,7 +5,7 @@ import { productService } from '../services/productService'
 
 export const productsController = {
     index: async (req: Request, res: Response) => {
-        const { page, perPage } = req.query
+        const { page, perPage, id, name, description, price, thumbnail_url } = req.query
 
         const perPageNumber = typeof perPage === 'string' && parseInt(perPage, 10) > 0
             ? parseInt(perPage, 10)
@@ -26,6 +26,11 @@ export const productsController = {
             })
 
             return res.json({
+                id,
+                name,
+                description,
+                price,
+                thumbnail_url,
                 page: pageNumber,
                 perPage: perPageNumber,
                 total: count
