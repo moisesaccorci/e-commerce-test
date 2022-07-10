@@ -42,7 +42,7 @@ export const authController = {
 
             const hashedPass = bcrypt.hash(password.toString(), 10)
 
-            user.checkPassword(password, (err, isSame) => {
+            user.checkPassword((await hashedPass), (err, isSame) => {
                 if (err) {
                     return res.status(400).json({ message: err.message })
                 }
