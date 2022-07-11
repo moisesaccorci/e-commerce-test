@@ -86,7 +86,15 @@ exports.authController = {
     }),
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { email } = req.body;
-        const obj = yield userService_1.userService.findByEmail(email);
-        return res.json(obj);
+        try {
+            const obj = yield models_1.User.findOne({
+                where: email
+            });
+            return res.json(obj);
+        }
+        catch (err) {
+            if (err instanceof Error)
+                return res.status(400).json({ message: err.message });
+        }
     }),
 };
