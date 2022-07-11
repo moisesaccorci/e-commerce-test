@@ -70,10 +70,9 @@ exports.authController = {
         const obj = yield models_1.User.findOne({
             attributes: [
                 'id',
-                'name',
             ],
             where: { email }
         });
-        return obj === null || obj === void 0 ? void 0 : obj.id;
+        return res.status(201).json(obj === null || obj === void 0 ? void 0 : obj.id);
     })
 };

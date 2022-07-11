@@ -74,10 +74,9 @@ export const authController = {
         const obj = await User.findOne({
             attributes: [
                 'id',
-                'name',
             ], 
             where: {email}
         })
-        return obj?.id
+        return res.status(201).json(obj?.id)
     }
 }
