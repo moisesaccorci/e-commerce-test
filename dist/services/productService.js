@@ -21,5 +21,5 @@ exports.productService = {
     create: (attributes) => __awaiter(void 0, void 0, void 0, function* () {
         const product = yield models_1.Product.create(attributes);
         return product;
-    })
+    }),
 };

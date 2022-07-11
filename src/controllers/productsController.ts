@@ -7,7 +7,7 @@ export const productsController = {
     index: async (req: Request, res: Response) => {
         try {
           const products = await Product.findAll({
-            attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at' ],
+            attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at', 'thumbnail_url' ],
             order: [['id', 'ASC']]
           })
       
@@ -32,7 +32,7 @@ export const productsController = {
         }
     },
     create: async (req: Request, res: Response) => {
-        const { name, description, price, user_id, created_at, updated_at } = req.body
+        const { name, description, price, user_id, created_at, updated_at, thumbnail_url } = req.body
 
         try {
                                
@@ -42,7 +42,8 @@ export const productsController = {
                 price,
                 user_id,
                 created_at,
-                updated_at
+                updated_at,
+                thumbnail_url
             })
 
             return res.status(201).json(product)
@@ -52,4 +53,37 @@ export const productsController = {
             }
         }
     },
+
+    update: async (req: Request, res: Response) => {
+        // const { id, name, description, price, updated_at } = req.body
+        const values = req.body
+        const obj = await Product.findOne({
+            where: values.id
+        })
+        if(obj) {
+            try {
+                return obj.update(values)
+            } catch(err) {
+                console.log(err)
+            }
+            return res.status(201).json(obj)
+        }
+     
+    },
+    
+    delete: async (req: Request, res: Response) => {
+        const { id } = req.body
+        const obj = await Product.findOne({
+            where: id
+        })
+
+        if(obj) {
+            try {
+                return obj.destroy(id)
+            } catch (error) {
+                console.log(error)
+            }
+            return res.status(201).json(obj)
+        }
+    }
 }   

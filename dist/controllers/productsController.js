@@ -16,7 +16,7 @@ exports.productsController = {
     index: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const products = yield models_1.Product.findAll({
-                attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at'],
+                attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at', 'thumbnail_url'],
                 order: [['id', 'ASC']]
             });
             return res.json(products);
@@ -40,7 +40,7 @@ exports.productsController = {
         }
     }),
     create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { name, description, price, user_id, created_at, updated_at } = req.body;
+        const { name, description, price, user_id, created_at, updated_at, thumbnail_url } = req.body;
         try {
             const product = yield productService_1.productService.create({
                 name,
@@ -48,7 +48,8 @@ exports.productsController = {
                 price,
                 user_id,
                 created_at,
-                updated_at
+                updated_at,
+                thumbnail_url
             });
             return res.status(201).json(product);
         }
@@ -58,4 +59,35 @@ exports.productsController = {
             }
         }
     }),
+    update: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        // const { id, name, description, price, updated_at } = req.body
+        const values = req.body;
+        const obj = yield models_1.Product.findOne({
+            where: values.id
+        });
+        if (obj) {
+            try {
+                return obj.update(values);
+            }
+            catch (err) {
+                console.log(err);
+            }
+            return res.status(201).json(obj);
+        }
+    }),
+    delete: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { id } = req.body;
+        const obj = yield models_1.Product.findOne({
+            where: id
+        });
+        if (obj) {
+            try {
+                return obj.destroy(id);
+            }
+            catch (error) {
+                console.log(error);
+            }
+            return res.status(201).json(obj);
+        }
+    })
 };

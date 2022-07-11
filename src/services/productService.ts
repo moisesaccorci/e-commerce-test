@@ -14,5 +14,5 @@ export const productService = {
   create: async (attributes: ProductCreationAttributes) => {
     const product = await Product.create(attributes)
     return product
-  }
+  },
 }

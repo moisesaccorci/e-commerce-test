@@ -4,6 +4,7 @@ import { sequelize } from "./database"
 import cors from 'cors'
 
 const app = express()
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
