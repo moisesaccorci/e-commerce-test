@@ -6,25 +6,25 @@ import { productService } from '../services/productService'
 export const productsController = {
     index: async (req: Request, res: Response) => {
         try {
-          const products = await Product.findAll({
-            attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at', 'thumbnail_url' ],
-            order: [['id', 'ASC']]
-          })
-      
-          return res.json(products)
+            const products = await Product.findAll({
+                attributes: ['id', 'name', 'description', 'price', 'user_id', 'created_at', 'thumbnail_url'],
+                order: [['id', 'ASC']]
+            })
+
+            return res.json(products)
         } catch (err) {
-          if (err instanceof Error) {
-            return res.status(400).json({ message: err.message })
-          }
+            if (err instanceof Error) {
+                return res.status(400).json({ message: err.message })
+            }
         }
-      },
+    },
 
     show: async (req: Request, res: Response) => {
         const { id } = req.params
 
         try {
-            const course = await productService.findByIdWithDetails(id)
-            return res.json(course)
+            const product = await productService.findByIdWithDetails(id)
+            return res.json(product)
         } catch (err) {
             if (err instanceof Error) {
                 return res.status(400).json({ message: err.message })
@@ -35,7 +35,7 @@ export const productsController = {
         const { name, description, price, user_id, created_at, updated_at, thumbnail_url } = req.body
 
         try {
-                               
+
             const product = await productService.create({
                 name,
                 description,
@@ -55,35 +55,45 @@ export const productsController = {
     },
 
     update: async (req: Request, res: Response) => {
-        // const { id, name, description, price, updated_at } = req.body
-        const values = req.body
-        const obj = await Product.findOne({
-            where: values.id
-        })
-        if(obj) {
+        const { id, name, description, price, updated_at } = req.body
+        //const values = req.body
+        const obj = await productService.findByIdWithDetails(id)
+
+        if (obj) {
             try {
-                return obj.update(values)
-            } catch(err) {
-                console.log(err)
+                const product = await obj.update({
+                    id,
+                    name,
+                    description,
+                    price,
+                    updated_at
+                })
+                return res.status(201).json(product)
+            } catch (err) {
+                if (err instanceof Error)
+                    return res.status(400).json({ message: err.message })
             }
-            return res.status(201).json(obj)
         }
-     
     },
-    
     delete: async (req: Request, res: Response) => {
         const { id } = req.body
-        const obj = await Product.findOne({
-            where: id
-        })
+        const obj = await productService.findByIdWithDetails(id)
 
-        if(obj) {
+        if (obj) {
             try {
-                return obj.destroy(id)
+                const product = await obj.destroy(id)
+                return res.status(201).json(product)
+
             } catch (error) {
-                console.log(error)
+                if (error instanceof Error)
+                return res.status(400).json({ message: error.message})
             }
-            return res.status(201).json(obj)
+
         }
+
+        return res.status(201).json(obj)
     }
-}   
+
+}
+
+

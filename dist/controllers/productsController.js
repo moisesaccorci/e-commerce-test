@@ -30,8 +30,8 @@ exports.productsController = {
     show: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { id } = req.params;
         try {
-            const course = yield productService_1.productService.findByIdWithDetails(id);
-            return res.json(course);
+            const product = yield productService_1.productService.findByIdWithDetails(id);
+            return res.json(product);
         }
         catch (err) {
             if (err instanceof Error) {
@@ -60,34 +60,39 @@ exports.productsController = {
         }
     }),
     update: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        // const { id, name, description, price, updated_at } = req.body
-        const values = req.body;
-        const obj = yield models_1.Product.findOne({
-            where: values.id
-        });
+        const { id, name, description, price, updated_at } = req.body;
+        //const values = req.body
+        const obj = yield productService_1.productService.findByIdWithDetails(id);
         if (obj) {
             try {
-                return obj.update(values);
+                const product = yield obj.update({
+                    id,
+                    name,
+                    description,
+                    price,
+                    updated_at
+                });
+                return res.status(201).json(product);
             }
             catch (err) {
-                console.log(err);
+                if (err instanceof Error)
+                    return res.status(400).json({ message: err.message });
             }
-            return res.status(201).json(obj);
         }
     }),
     delete: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { id } = req.body;
-        const obj = yield models_1.Product.findOne({
-            where: id
-        });
+        const obj = yield productService_1.productService.findByIdWithDetails(id);
         if (obj) {
             try {
-                return obj.destroy(id);
+                const product = yield obj.destroy(id);
+                return res.status(201).json(product);
             }
             catch (error) {
-                console.log(error);
+                if (error instanceof Error)
+                    return res.status(400).json({ message: error.message });
             }
-            return res.status(201).json(obj);
         }
+        return res.status(201).json(obj);
     })
 };
