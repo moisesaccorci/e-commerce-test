@@ -2,6 +2,8 @@ import { Request, Response } from 'express'
 import { userService } from '../services/userService'
 import { jwtService } from '../services/jwtService'
 import bcrypt from 'bcrypt'
+import { Resource } from '@adminjs/sequelize'
+import { User } from '../models'
 
 export const authController = {
 
@@ -14,7 +16,7 @@ export const authController = {
             if (userAlreadyExists) {
                 throw new Error('This e-mail already exists on our database')
             }
-                               
+
             const user = await userService.create({
                 name,
                 surname,
@@ -63,6 +65,22 @@ export const authController = {
         } catch (err) {
             if (err instanceof Error) {
                 return res.status(400).json({ message: err.message })
+            }
+        }
+    },
+
+    get: async (req: Request, res: Response) => {
+        const { email } = req.body
+        const obj = await userService.findByEmail(email)
+
+        if (obj) {
+            try {
+                const user = obj.id
+                
+                return res.status(201).json(user)
+            } catch (err) {
+                if (err instanceof Error)
+                return res.status(400).json({message: err.message})
             }
         }
     }

@@ -16,6 +16,7 @@ app.use(express_1.default.json());
 // User and login
 router.post('/auth/register', authController_1.authController.register);
 router.post('/auth/login', authController_1.authController.login);
+router.get('auth/login:id', authController_1.authController.get);
 // Products index and registration
 router.post('/products', productsController_1.productsController.create);
 router.get('/products', productsController_1.productsController.index);

@@ -13,6 +13,7 @@ app.use(express.json())
 // User and login
 router.post('/auth/register', authController.register)
 router.post('/auth/login', authController.login)
+router.get('auth/login:id', authController.get)
 
 // Products index and registration
 router.post('/products', productsController.create)
