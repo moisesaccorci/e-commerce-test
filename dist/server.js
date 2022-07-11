@@ -10,8 +10,8 @@ const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Authorization");
-    res.header("Access-Control-Request-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Headers", "Authorization, Content-Type");
+    res.header("Access-Control-Request-Headers", "Content-Type, Authorization");
     res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
     app.use((0, cors_1.default)());
     next();
