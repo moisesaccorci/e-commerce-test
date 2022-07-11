@@ -25,6 +25,18 @@ exports.userService = {
         });
         return user;
     }),
+    findByIdWithDetails: (id) => __awaiter(void 0, void 0, void 0, function* () {
+        const userWithDetails = yield models_1.User.findByPk(id, {
+            attributes: [
+                'id',
+                'email',
+                'name',
+                'surname',
+                'role'
+            ],
+        });
+        return userWithDetails;
+    }),
     create: (attributes) => __awaiter(void 0, void 0, void 0, function* () {
         const user = yield models_1.User.create(attributes);
         return user;

@@ -69,14 +69,29 @@ export const authController = {
         }
     },
 
+    index: async (req: Request, res: Response) => {
+        try {
+            const users = await User.findAll({
+                attributes: [
+                    'id',
+                    'email',
+                    'name',
+                    'surname',
+                    'role'
+                ],
+                order: [['id', 'asc']]
+            })
+
+            res.json(users)
+        } catch(err) {
+            if(err instanceof Error)
+            return res.status(400).json({ message: err.message })
+        }
+    },
+
     get: async (req: Request, res: Response) => {
-        const { email } = req.params
-        const obj = await User.findOne({
-            attributes: [
-                'id',
-            ], 
-            where: {email}
-        })
-        return res.status(201).json(obj?.id)
-    }
+        const { email } = req.body
+        const obj = await userService.findByEmail(email)
+        return res.json(obj)
+    },
 }

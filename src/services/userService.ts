@@ -16,6 +16,21 @@ export const userService = {
     return user
   },
 
+  findByIdWithDetails: async (id: string) => {
+    const userWithDetails = await User.findByPk(id, {
+      attributes: [
+        'id',
+        'email',
+        'name',
+        'surname',
+        'role'
+      ],
+
+    })
+
+    return userWithDetails
+  },
+
   create: async (attributes: UserCreationAttributes) => {
     const user = await User.create(attributes)
     return user

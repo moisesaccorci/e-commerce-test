@@ -65,14 +65,28 @@ exports.authController = {
             }
         }
     }),
+    index: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const users = yield models_1.User.findAll({
+                attributes: [
+                    'id',
+                    'email',
+                    'name',
+                    'surname',
+                    'role'
+                ],
+                order: [['id', 'asc']]
+            });
+            res.json(users);
+        }
+        catch (err) {
+            if (err instanceof Error)
+                return res.status(400).json({ message: err.message });
+        }
+    }),
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { email } = req.params;
-        const obj = yield models_1.User.findOne({
-            attributes: [
-                'id',
-            ],
-            where: { email }
-        });
-        return res.status(201).json(obj === null || obj === void 0 ? void 0 : obj.id);
-    })
+        const { email } = req.body;
+        const obj = yield userService_1.userService.findByEmail(email);
+        return res.json(obj);
+    }),
 };
