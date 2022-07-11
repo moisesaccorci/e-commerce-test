@@ -71,17 +71,13 @@ export const authController = {
 
     get: async (req: Request, res: Response) => {
         const { email } = req.body
-        const obj = await userService.findByEmail(email)
-
-        if (obj) {
-            try {
-                const user = obj.id
-                
-                return res.status(201).json(user)
-            } catch (err) {
-                if (err instanceof Error)
-                return res.status(400).json({message: err.message})
-            }
-        }
+        const obj = await User.findOne({
+            attributes: [
+                'id',
+                'name',
+            ], 
+            where: {email}
+        })
+        return obj?.id
     }
 }

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.authController = void 0;
 const userService_1 = require("../services/userService");
 const jwtService_1 = require("../services/jwtService");
+const models_1 = require("../models");
 exports.authController = {
     register: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { name, surname, email, password } = req.body;
@@ -66,16 +67,13 @@ exports.authController = {
     }),
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { email } = req.body;
-        const obj = yield userService_1.userService.findByEmail(email);
-        if (obj) {
-            try {
-                const user = obj.id;
-                return res.status(201).json(user);
-            }
-            catch (err) {
-                if (err instanceof Error)
-                    return res.status(400).json({ message: err.message });
-            }
-        }
+        const obj = yield models_1.User.findOne({
+            attributes: [
+                'id',
+                'name',
+            ],
+            where: { email }
+        });
+        return obj === null || obj === void 0 ? void 0 : obj.id;
     })
 };
