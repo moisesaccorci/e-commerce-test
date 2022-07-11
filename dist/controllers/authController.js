@@ -8,14 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authController = void 0;
 const userService_1 = require("../services/userService");
 const jwtService_1 = require("../services/jwtService");
-const bcrypt_1 = __importDefault(require("bcrypt"));
 exports.authController = {
     register: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { name, surname, email, password } = req.body;
@@ -46,7 +42,7 @@ exports.authController = {
             if (!user) {
                 return res.status(401).json({ message: 'This e-mail is not registered' });
             }
-            user.checkPassword(yield bcrypt_1.default.hash(password.toString(), 10), (err, isSame) => {
+            user.checkPassword(password, (err, isSame) => {
                 if (err) {
                     return res.status(400).json({ message: err.message });
                 }
