@@ -4,6 +4,8 @@ import { sequelize } from "./database"
 import cors from 'cors'
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 app.use((req, res, next) => {
 	
@@ -16,9 +18,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('public'))
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
 app.use(router)
 
