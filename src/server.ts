@@ -12,12 +12,17 @@ app.use(cors());
 
 app.use((req, res, next) => {
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Authorization, Content-Type")
-    res.header("Access-Control-Request-Headers", "Content-Type, Authorization")
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Credentials', 'true');
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
     next();
+    // res.header("Access-Control-Allow-Headers", "Authorization, Content-Type")
+    // res.header("Access-Control-Request-Headers", "Content-Type, Authorization")
+    // res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    // res.header('Access-Control-Allow-Credentials', 'true');
+    // next();
 });
 
 app.use(express.static('public'))
