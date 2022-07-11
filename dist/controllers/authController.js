@@ -66,7 +66,7 @@ exports.authController = {
         }
     }),
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { email } = req.body;
+        const { email } = req.params;
         const obj = yield models_1.User.findOne({
             attributes: [
                 'id',

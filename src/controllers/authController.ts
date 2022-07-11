@@ -70,7 +70,7 @@ export const authController = {
     },
 
     get: async (req: Request, res: Response) => {
-        const { email } = req.body
+        const { email } = req.params
         const obj = await User.findOne({
             attributes: [
                 'id',
