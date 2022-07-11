@@ -66,7 +66,6 @@ exports.productsController = {
         if (obj) {
             try {
                 const product = yield obj.update({
-                    id,
                     name,
                     description,
                     price,
@@ -93,6 +92,5 @@ exports.productsController = {
                     return res.status(400).json({ message: error.message });
             }
         }
-        return res.status(201).json(obj);
     })
 };

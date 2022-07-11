@@ -62,7 +62,6 @@ export const productsController = {
         if (obj) {
             try {
                 const product = await obj.update({
-                    id,
                     name,
                     description,
                     price,
@@ -90,8 +89,6 @@ export const productsController = {
             }
 
         }
-
-        return res.status(201).json(obj)
     }
 
 }
