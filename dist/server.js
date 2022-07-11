@@ -12,11 +12,11 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
-    res.setHeader("Access-Control-Request-Headers", "Content-Type, Authorization");
-    res.setHeader("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Authorization, Content-Type");
+    res.header("Access-Control-Request-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
 });
 app.use(express_1.default.static('public'));

@@ -11,8 +11,6 @@ const authController_1 = require("./controllers/authController");
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
 exports.router = router;
-app.use(express_1.default.urlencoded({ extended: true }));
-app.use(express_1.default.json());
 // User and login
 router.post('/auth/register', authController_1.authController.register);
 router.post('/auth/login', authController_1.authController.login);

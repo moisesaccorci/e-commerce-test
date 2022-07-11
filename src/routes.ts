@@ -6,10 +6,6 @@ const app = express()
 const router = express.Router()
 
 
-
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-
 // User and login
 router.post('/auth/register', authController.register)
 router.post('/auth/login', authController.login)
