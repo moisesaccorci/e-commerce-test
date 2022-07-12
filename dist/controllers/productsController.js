@@ -80,7 +80,7 @@ exports.productsController = {
         }
     }),
     delete: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { id } = req.body;
+        const { id } = req.params;
         const obj = yield productService_1.productService.findByIdWithDetails(id);
         if (obj) {
             try {

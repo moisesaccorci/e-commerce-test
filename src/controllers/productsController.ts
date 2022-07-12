@@ -3,6 +3,7 @@ import { Product } from "../models"
 import { ProductCreationAttributes } from "../models/Product"
 import { productService } from '../services/productService'
 
+
 export const productsController = {
     index: async (req: Request, res: Response) => {
         try {
@@ -75,7 +76,7 @@ export const productsController = {
         }
     },
     delete: async (req: Request, res: Response) => {
-        const { id } = req.body
+        const { id } = req.params
         const obj = await productService.findByIdWithDetails(id)
 
         if (obj) {
